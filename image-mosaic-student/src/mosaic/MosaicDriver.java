@@ -32,18 +32,17 @@ public class MosaicDriver extends JFrame
 		setLocationRelativeTo(null);
 	}
 
+	// buffered method
 	public static BufferedImage makeMosaic() throws IOException
 	{
 		// first, choose the set of colors (the "palette") for the mosaic
-		int[] palette =
-		{ 0xFF0000, 0x00FF00, 0x0000FF };
+		int[] palette = { 0xFF0000, 0x00FF00, 0x0000FF };
 
 		// then instantiate a TileFactor with this palette
 		TileFactory tileFactory = new TileFactory(palette, WIDTH, HEIGHT);
 
 		// load the test images
-		for (String color : new String[]
-		{ "red", "green", "blue" })
+		for (String color : new String[] { "red", "green", "blue" })
 		{
 			for (BufferedImage image : ImageUtils.loadFromDirectory(new File(RESOURCE_DIR + color)))
 			{
@@ -75,7 +74,8 @@ public class MosaicDriver extends JFrame
 				try
 				{
 					m = new MosaicDriver();
-				} catch (IOException e)
+				}
+				catch (IOException e)
 				{
 					e.printStackTrace();
 					return;
